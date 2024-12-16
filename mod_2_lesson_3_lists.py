@@ -1,4 +1,3 @@
-
 """
 This module contains solutions for various tasks involving list operations and
 transformations in Python. The tasks include sorting grades, calculating average
@@ -6,64 +5,46 @@ grades, checking student attendance and submission, and extracting specific
 temperature data.
 """
 
-def extract_second_week_temperatures(data):
-    """
-    Extract temperatures from the second week of a given dataset.
-
-    :param data: List of temperatures for the entire month.
-    :return: List of temperatures for the second week.
-    """
-    second_week_temps = []
-    for i in range(7, 14):  # Assuming data is a list and index 7-13 is the second week
-        second_week_temps.append(data[i])
-    return second_week_temps
-
 def sort_grades_descending(grades):
     """
     Sort the grades in descending order.
 
-    :param grades: List of grades to be sorted.
-    :return: List of grades sorted in descending order.
+    Args:
+        grades (list): List of grades.
+
+    Returns:
+        list: Sorted list of grades in descending order.
     """
+    # Pseudocode:
+    # 1. Use the sorted() function with reverse=True to sort the grades in descending order.
     return sorted(grades, reverse=True)
 
-# Example usage of sort_grades_descending function
-grades = [89, 72, 93, 85, 78]
-sorted_grades = sort_grades_descending(grades)
-print("\nSorted Grades (Descending Order):")
-print(sorted_grades)
+def calculate_average_grade(grades):
+    """
+    Calculate the average grade.
 
-# Initial sample tickets
-service_tickets = {
-    "Ticket001": {"Customer": "Alice", "Issue": "Login problem", "Status": "open"},
-    "Ticket002": {"Customer": "Bob", "Issue": "Payment issue", "Status": "closed"}
-}
+    Args:
+        grades (list): List of grades.
 
-def open_ticket(ticket_id, customer, issue):
+    Returns:
+        float: The average grade.
     """
-    Open a new service ticket.
-    """
-    service_tickets[ticket_id] = {"Customer": customer, "Issue": issue, "Status": "open"}
+    # Pseudocode:
+    # 1. Calculate the sum of all grades.
+    # 2. Divide the sum by the number of grades to get the average.
+    return sum(grades) / len(grades)
 
-def update_ticket_status(ticket_id, status):
+def main_grades_analysis():
     """
-    Update the status of an existing ticket.
+    Main function to perform grades analysis.
     """
-    if ticket_id in service_tickets:
-        service_tickets[ticket_id]["Status"] = status
-    else:
-        print("Ticket not found!")
+    grades = [85, 90, 78, 88, 76, 95, 89, 80, 72, 93]
+    
+    sorted_grades = sort_grades_descending(grades)
+    print("Sorted grades in descending order:", sorted_grades)
+    
+    average_grade = calculate_average_grade(grades)
+    print("Average grade:", average_grade)
 
-def display_tickets(status=None):
-    """
-    Display all tickets or filter by status.
-    """
-    for ticket_id, details in service_tickets.items():
-        if status is None or details["Status"] == status:
-            print(f"{ticket_id}: {details}")
-
-# Example usage
-open_ticket("Ticket003", "Charlie", "Account locked")
-update_ticket_status("Ticket001", "closed")
-display_tickets("open")  # Display all open tickets
-display_tickets()  # Display all tickets
+if __name__ == '__main__':
+    main_grades_analysis()
