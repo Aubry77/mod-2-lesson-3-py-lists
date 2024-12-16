@@ -1,0 +1,1 @@
+def extract_second_week_temperatures(temperatures):
