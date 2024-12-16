@@ -27,29 +27,6 @@ def sort_grades_descending(grades):
     """
     return sorted(grades, reverse=True)
 
-# Initial menu
-restaurant_menu = {
-    "Starters": {"Soup": 5.99, "Bruschetta": 6.50},
-    "Main Course": {"Steak": 15.99, "Salmon": 13.99},
-    "Desserts": {"Cake": 4.99, "Ice Cream": 3.99}
-}
-
-# Add a new category "Beverages"
-restaurant_menu["Beverages"] = {"Tea": 1.99, "Coffee": 2.50}
-
-# Update the price of "Steak"
-restaurant_menu["Main Course"]["Steak"] = 17.99
-
-# Remove "Bruschetta" from "Starters"
-del restaurant_menu["Starters"]["Bruschetta"]
-
-# Printing the updated menu to check changes
-print("Updated Restaurant Menu:")
-for category, items in restaurant_menu.items():
-    print(f"{category}:")
-    for item, price in items.items():
-        print(f"  {item}: ${price:.2f}")
-
 # Example usage of sort_grades_descending function
 grades = [89, 72, 93, 85, 78]
 sorted_grades = sort_grades_descending(grades)
